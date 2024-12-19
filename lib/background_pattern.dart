@@ -12,7 +12,7 @@ class BackgroundPatternPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final theme = Theme.of(context);
     final paint = Paint()
-      ..color = theme.colorScheme.onSurface.withOpacity(0.1) // Use primary color
+      ..color = theme.colorScheme.onSurface.withValues(alpha: 0.1)
       ..strokeWidth = 2
       ..style = PaintingStyle.stroke;
 

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'project_card.dart'; // Assuming ProjectCard is in a separate file.
+import 'project_card.dart';
 
 class ProjectsGrid extends StatelessWidget {
   final int itemCount;
 
   const ProjectsGrid({
-    Key? key,
-    this.itemCount = 4, // Default to 4 items if not specified.
-  }) : super(key: key);
+    super.key,
+    this.itemCount = 4,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,8 @@ import 'package:portfolio_flutter/skill_card.dart';
 import 'dart:math' as math;
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final void Function() toggleTheme;
+  const HomePage({super.key, required this.toggleTheme});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -116,6 +117,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   heroTag: 'contact',
                   onPressed: () {},
                   child: const Icon(Icons.email),
+                ),
+                const SizedBox(height: 16),
+                FloatingActionButton(
+                  heroTag: 'theme',
+                  onPressed: widget.toggleTheme,
+                  child: const Icon(Icons.brightness_6),
                 ),
               ],
             ),
