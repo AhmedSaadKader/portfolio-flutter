@@ -58,32 +58,34 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         name: "Ahmed Saad",
         title: "Full Stack Developer",
       ),
-      floatingActionButton: Positioned(
-        bottom: 32,
-        right: 32,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            FloatingActionButton(
-              heroTag: 'github',
-              onPressed: () {},
-              child: const Icon(Icons.code),
-            ),
-            const SizedBox(height: 16),
-            FloatingActionButton(
-              heroTag: 'contact',
-              onPressed: () {},
-              child: const Icon(Icons.email),
-            ),
-            const SizedBox(height: 16),
-            FloatingActionButton(
-              heroTag: 'theme',
-              onPressed: widget.toggleTheme,
-              child: const Icon(Icons.brightness_6),
-            ),
-          ],
+      floatingActionButton: Stack(children: [
+        Positioned(
+          bottom: 32,
+          right: 32,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              FloatingActionButton(
+                heroTag: 'github',
+                onPressed: () {},
+                child: const Icon(Icons.code),
+              ),
+              const SizedBox(height: 16),
+              FloatingActionButton(
+                heroTag: 'contact',
+                onPressed: () {},
+                child: const Icon(Icons.email),
+              ),
+              const SizedBox(height: 16),
+              FloatingActionButton(
+                heroTag: 'theme',
+                onPressed: widget.toggleTheme,
+                child: const Icon(Icons.brightness_6),
+              ),
+            ],
+          ),
         ),
-      ),
+      ]),
     );
   }
 }
