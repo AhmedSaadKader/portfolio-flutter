@@ -194,35 +194,33 @@ class _CenteredPortfolioLayoutState extends State<CenteredPortfolioLayout> with 
                                   ],
                                 ).createShader(bounds),
                                 child: Text(
-                                  'Welcome',
+                                  'Let\'s Build Something Amazing Together!',
                                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white,
                                       ),
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                               const SizedBox(height: 16),
-                              Text(
-                                widget.name,
-                                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 8),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                              Column(
                                 children: [
-                                  Icon(
-                                    Icons.code,
-                                    color: Theme.of(context).primaryColor,
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(Icons.code, color: Theme.of(context).primaryColor),
+                                      const SizedBox(width: 8),
+                                      Text('Web Development', style: Theme.of(context).textTheme.bodyMedium),
+                                    ],
                                   ),
-                                  const SizedBox(width: 8),
-                                  Text(
-                                    widget.title,
-                                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                                          color: Theme.of(context).primaryColor,
-                                        ),
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(Icons.mobile_friendly, color: Theme.of(context).primaryColor),
+                                      const SizedBox(width: 8),
+                                      Text('Mobile Apps', style: Theme.of(context).textTheme.bodyMedium),
+                                    ],
                                   ),
                                 ],
                               ),
