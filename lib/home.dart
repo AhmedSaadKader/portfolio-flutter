@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_flutter/background_pattern.dart';
-import 'package:portfolio_flutter/bubble.dart';
 import 'package:portfolio_flutter/centered_portfolio_with_backgound.dart';
-import 'package:portfolio_flutter/experience_page.dart';
-import 'package:portfolio_flutter/hero_section.dart';
-import 'package:portfolio_flutter/project_grid.dart';
-import 'package:portfolio_flutter/skill_card.dart';
-import 'dart:math' as math;
 
 class HomePage extends StatefulWidget {
   final void Function() toggleTheme;
@@ -56,10 +49,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       // body: ExperiencePage(),
-      body: CenteredPortfolioLayout(
-        name: "Ahmed Saad",
-        title: "Full Stack Developer",
-      ),
+      body: CenteredPortfolioLayout(),
       floatingActionButton: Stack(children: [
         Positioned(
           bottom: 32,
