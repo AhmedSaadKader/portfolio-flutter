@@ -1,4 +1,5 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter/material.dart';
 
 class AppTheme {
   // Define your color schemes
@@ -9,23 +10,18 @@ class AppTheme {
   static final darkTheme = FlexThemeData.dark(
     scheme: FlexScheme.deepBlue,
   );
+}
 
-  // Custom text themes can still be added if needed
-  // static TextTheme get _customTextTheme => TextTheme(
-  //       displayLarge: TextStyle(
-  //         color: Colors.white,
-  //         fontSize: 56,
-  //         fontWeight: FontWeight.bold,
-  //         letterSpacing: -1,
-  //       ),
-  //       displayMedium: TextStyle(
-  //         color: const Color(0xFF6C63FF),
-  //         fontSize: 24,
-  //         fontWeight: FontWeight.w600,
-  //       ),
-  //       bodyLarge: TextStyle(
-  //         color: const Color(0xFFE0E0E0),
-  //         fontSize: 16,
-  //       ),
-  //     );
+class ThemeProvider extends ChangeNotifier {
+  ThemeMode _themeMode = ThemeMode.dark;
+  ThemeMode get themeMode => _themeMode;
+
+  void toggleTheme() {
+    if (_themeMode == ThemeMode.light) {
+      _themeMode = ThemeMode.dark;
+    } else {
+      _themeMode = ThemeMode.light;
+    }
+    notifyListeners();
+  }
 }

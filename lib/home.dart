@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter/centered_portfolio_with_backgound.dart';
+import 'package:portfolio_flutter/custom_app_bar.dart';
+import 'package:portfolio_flutter/floating_buttons.dart';
+import 'package:portfolio_flutter/theme.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
-  final void Function() toggleTheme;
-  const HomePage({super.key, required this.toggleTheme});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -12,7 +15,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late AnimationController _rotationController;
   late AnimationController _slideController;
-  late Animation<Offset> _slideAnimation;
 
   @override
   void initState() {
@@ -27,14 +29,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
     );
 
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(-1, 0),
-      end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _slideController,
-      curve: Curves.easeOutCubic,
-    ));
-
     _slideController.forward();
   }
 
@@ -48,36 +42,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // body: ExperiencePage(),
-      body: CenteredPortfolioLayout(),
-      floatingActionButton: Stack(children: [
-        Positioned(
-          bottom: 32,
-          right: 32,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              FloatingActionButton(
-                heroTag: 'github',
-                onPressed: () {},
-                child: const Icon(Icons.code),
-              ),
-              const SizedBox(height: 16),
-              FloatingActionButton(
-                heroTag: 'contact',
-                onPressed: () {},
-                child: const Icon(Icons.email),
-              ),
-              const SizedBox(height: 16),
-              FloatingActionButton(
-                heroTag: 'theme',
-                onPressed: widget.toggleTheme,
-                child: const Icon(Icons.brightness_6),
-              ),
-            ],
-          ),
-        ),
-      ]),
+      appBar: const CustomAppBar(
+        title: 'Home',
+        showBackButton: false,
+      ),
+      body: const CenteredPortfolioLayout(),
+      floatingActionButton: FloatingActionButtons(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:portfolio_flutter/background_pattern.dart';
 import 'dart:math' as math;
 
@@ -314,37 +315,43 @@ class _CenteredPortfolioLayoutState extends State<CenteredPortfolioLayout> with 
   late final Animation<double> _fadeInAnimation;
   late final Animation<double> _scaleAnimation;
   late final List<Animation<double>> _bubbleAnimations;
-
-  final List<NavigationBubble> bubbleItems = [
-    NavigationBubble(
-      text: 'Education',
-      icon: Icons.school,
-      onTap: () => print('Education clicked'),
-    ),
-    NavigationBubble(
-      text: 'Projects',
-      icon: Icons.work,
-      onTap: () => print('Projects clicked'),
-    ),
-    NavigationBubble(
-      text: 'Contact',
-      icon: Icons.contact_mail,
-      onTap: () => print('Contact clicked'),
-    ),
-    NavigationBubble(
-      text: 'Skills',
-      icon: Icons.code,
-      onTap: () => print('Skills clicked'),
-    ),
-    NavigationBubble(
-      text: 'About',
-      icon: Icons.person,
-      onTap: () => print('About clicked'),
-    ),
-  ];
+  late List<NavigationBubble> bubbleItems;
 
   @override
   void initState() {
+    bubbleItems = [
+      NavigationBubble(
+        text: 'Education',
+        icon: Icons.school,
+        onTap: () => context.go('/education'),
+      ),
+      NavigationBubble(
+        text: 'Experience',
+        icon: Icons.work,
+        onTap: () => context.go('/experience'),
+      ),
+      NavigationBubble(
+        text: 'Projects',
+        icon: Icons.work,
+        onTap: () => context.go('/projects'),
+      ),
+      NavigationBubble(
+        text: 'Contact',
+        icon: Icons.contact_mail,
+        onTap: () => context.go('/contace'),
+      ),
+      NavigationBubble(
+        text: 'Skills',
+        icon: Icons.code,
+        onTap: () => context.go('/skills'),
+      ),
+      NavigationBubble(
+        text: 'About',
+        icon: Icons.person,
+        onTap: () => context.go('/about'),
+      ),
+    ];
+
     super.initState();
     _initializeAnimations();
   }
